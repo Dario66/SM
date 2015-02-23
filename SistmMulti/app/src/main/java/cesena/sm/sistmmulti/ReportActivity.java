@@ -31,14 +31,8 @@ public class ReportActivity extends Activity {
         d2=(EditText)findViewById(R.id.editdesc);
     }
 
-    public void aaa(View v){
 
-        List<Student> ass= db.getAllStuds();
-        for (Student i : ass) {
-            Toast.makeText(this, ""+i._testo2+"", Toast.LENGTH_LONG).show();
-        }
-
-    }
+    
     double a;
     double b;
     public void makeRepo(View v){
@@ -102,7 +96,7 @@ public class ReportActivity extends Activity {
    
 
 
-    }
+
     public void consegna(View v){
         Intent intent = new Intent(this, SendMailActivity.class);
         intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
