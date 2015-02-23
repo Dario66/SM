@@ -83,26 +83,7 @@ public class ReportActivity extends Activity {
         alert.show();
 
     }
-    public void esci(View v){
-        List<Repos> s=db.getAllRepos();
-        for(Repos h:s){
-            db.deleteRepos(h);
-        }
-        List<Student> st=db.getAllStuds();
-        for(Student j:st){
-            db.deleteStuds(j);
-        }
-       // db.deleteAllRepos();
-        Toast.makeText(this, "account eliminato con successo..", Toast.LENGTH_LONG).show();
-        Intent intent = new Intent(this, LoginActivity.class);
-        intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-        startActivity(intent);
-        finish();
-    }
-   
 
-
-    }
     public void consegna(View v){
         Intent intent = new Intent(this, SendMailActivity.class);
         intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
