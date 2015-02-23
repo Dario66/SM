@@ -26,15 +26,15 @@ public class GMail {
     final String starttls = "true";
     final String emailHost = "pod51002.outlook.com";
 
-    String fromEmail;
-    String fromPassword;
-    List<String> toEmailList;
-    String emailSubject;
-    String emailBody;
+    private String fromEmail;
+    private String fromPassword;
+    private List<String> toEmailList;
+    private String emailSubject;
+    private String emailBody;
 
-    Properties emailProperties;
-    Session mailSession;
-    MimeMessage emailMessage;
+    private Properties emailProperties;
+    private Session mailSession;
+    private MimeMessage emailMessage;
 
     public GMail() {
 

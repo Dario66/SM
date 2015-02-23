@@ -99,11 +99,7 @@ public class ReportActivity extends Activity {
         startActivity(intent);
         finish();
     }
-    public void ass(View v){
-        List<Repos> s=db.getAllRepos();
-        for(Repos h:s){
-            Toast.makeText(this, ""+h._level.toString()+"", Toast.LENGTH_LONG).show();
-        }
+   
 
 
     }
