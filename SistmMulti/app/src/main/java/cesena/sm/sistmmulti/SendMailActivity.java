@@ -132,17 +132,7 @@ public class SendMailActivity extends Activity {
 
 
 }
-    public boolean checkMailTrue(String email){
-        boolean vediamo=false;
-        for(int i=0;i<email.length();i++){
-            String l=".";
-            if(Character.toString(email.charAt(i)).compareTo(l)==0){
-                vediamo=true;
-                //Toast.makeText(SendMailActivity.this, "presente il punto ", Toast.LENGTH_LONG).show();
-            }
-        }
-        return vediamo;
-    }
+
 
     public void cancella(){
         List<Repos> k=db.getAllRepos();

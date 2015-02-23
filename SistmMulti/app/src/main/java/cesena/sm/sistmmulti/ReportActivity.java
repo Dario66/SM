@@ -32,7 +32,7 @@ public class ReportActivity extends Activity {
     }
 
 
-    
+
     double a;
     double b;
     public void makeRepo(View v){
