@@ -1,0 +1,105 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:paddingLeft="15sp"
+    android:paddingRight="15sp"
+    android:paddingTop="65sp"
+    android:paddingBottom="15sp"
+    android:background="@drawable/untitled3">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:paddingTop="0sp">
+      <TextView
+          android:layout_width="match_parent"
+          android:layout_height="match_parent"
+          android:text="Consegnando verrà inviata una mail con i dettagli dei report effettuati. Mettere l'email di STUDIO..\n"
+          android:textSize="24dp"
+          android:textStyle="bold"
+          android:textColor="#FFFFFF"
+          android:fontFamily="sans-serif-condensed"/>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="30dp"
+        android:paddingTop="15sp">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Nome :"
+            android:fontFamily="sans-serif-condensed"
+            android:textSize="24dp"
+            android:textStyle="bold"
+            />
+        <EditText
+            android:id="@+id/btn_uno"
+            android:hint="nome.cognome@studio.unibo.it"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:paddingTop="15sp"
+        android:layout_marginTop="20dp">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="password :"
+            android:fontFamily="sans-serif-condensed"
+            android:textSize="24dp"
+            android:textStyle="bold"
+           />
+        <EditText
+            android:id="@+id/btn_due"
+            android:hint="password"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+    </LinearLayout>
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="wrap_content"
+        android:layout_height="60dp"
+        android:orientation="horizontal"
+        android:layout_centerHorizontal="true"
+        android:id="@+id/linearLayout4"
+        android:layout_marginTop="50dp">
+
+        <Button
+            android:id="@+id/btn_coco"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Consegna"
+            android:layout_weight="1"
+            android:textColor="#FFFFFF"
+            android:fontFamily="sans-serif-condensed"
+            android:textSize="24dp"
+            android:layout_centerHorizontal="true"
+            android:background="#000000"
+            android:padding="12dp"
+            />
+
+    </LinearLayout>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="cancella Db"
+        android:id="@+id/btn_canc"
+        android:layout_gravity="right"
+        android:textColor="#FFFFFF"
+        android:fontFamily="sans-serif-condensed"
+        android:textSize="20dp"
+        android:layout_centerHorizontal="true"
+        android:background="#000000"
+        android:padding="12dp"/>
+</LinearLayout>

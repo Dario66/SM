@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@drawable/untitled3"
+    android:padding="15dp"
+    >
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_height="wrap_content" android:orientation="horizontal"
+        android:layout_marginTop="150dp"
+        android:layout_width="fill_parent"
+        android:id="@+id/linearLayout"
+        android:layout_centerHorizontal="true">
+        <EditText
+            android:id="@+id/editbarriera"
+            android:layout_height="40dp"
+            android:layout_weight="1"
+            android:layout_width="fill_parent"
+            android:background="#FFFFFF">
+        </EditText>
+
+
+    </LinearLayout>
+    <TextView
+        android:id="@+id/textView1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="barriera/facility:"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:layout_marginBottom="54dp"
+        android:textColor="#FFFFFF"
+        android:fontFamily="sans-serif-condensed"
+        android:textSize="24dp"
+        android:layout_alignBottom="@+id/linearLayout"
+         />
+
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="fill_parent"
+        android:layout_height="60dp"
+        android:orientation="horizontal"
+        android:layout_marginTop="240dp">
+
+        <EditText
+            android:id="@+id/editdesc"
+            android:layout_height="40dp"
+            android:layout_weight="1"
+            android:layout_width="fill_parent"
+            android:background="#FFFFFF">
+        </EditText>
+
+    </LinearLayout>
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="fill_parent"
+        android:layout_height="60dp"
+        android:orientation="horizontal"
+        android:layout_marginTop="310dp">
+
+        <Button
+            android:id="@+id/btn_addrepo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="aggiungi report"
+            android:layout_weight="1"
+            android:textColor="#FFFFFF"
+            android:fontFamily="sans-serif-condensed"
+            android:textSize="24dp"
+            android:layout_centerHorizontal="true"
+            android:onClick="makeRepo"
+            android:background="#000000"/>
+
+    </LinearLayout>
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="fill_parent"
+        android:layout_height="60dp"
+        android:orientation="horizontal"
+        android:padding="10dp"
+
+        android:layout_alignParentBottom="true"
+        >
+
+        <Button
+            android:id="@+id/btn_consegna"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="consegna"
+            android:layout_weight="0.20"
+            android:layout_marginLeft="60dp"
+            android:textColor="#FFFFFF"
+            android:fontFamily="sans-serif-condensed"
+            android:textSize="24dp"
+            android:background="#000000"
+            android:onClick="consegna"
+            android:layout_centerHorizontal="true"
+            />
+
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="descrizione:"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:textColor="#FFFFFF"
+        android:fontFamily="sans-serif-condensed"
+        android:textSize="24dp"
+        android:layout_below="@+id/linearLayout"
+        android:layout_marginTop="9dp"
+         />
+
+
+</RelativeLayout>
