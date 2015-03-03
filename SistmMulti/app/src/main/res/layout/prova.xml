@@ -6,7 +6,8 @@
     android:paddingRight="15sp"
     android:paddingTop="75sp"
     android:paddingBottom="15sp"
-    android:background="@drawable/untitled3">
+    android:background="@drawable/untitled3"
+    android:scrollbars="vertical">
 
     <TextView
         android:layout_width="wrap_content"

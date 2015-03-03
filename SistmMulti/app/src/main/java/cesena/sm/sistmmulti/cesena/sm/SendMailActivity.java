@@ -1,5 +1,7 @@
-package cesena.sm.sistmmulti;
+package cesena.sm.sistmmulti.cesena.sm;
 
+import java.net.URL;
+import java.net.URLConnection;
 import java.util.Arrays;
 import java.util.List;
 
@@ -12,12 +14,14 @@ import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.Bundle;
 import android.os.StrictMode;
+import android.provider.Settings;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.TextView;
 import android.widget.Toast;
+
+import cesena.sm.sistmmulti.R;
 
 public class SendMailActivity extends Activity {
     private static SqLiteConn db;
@@ -37,6 +41,14 @@ public class SendMailActivity extends Activity {
             db = new SqLiteConn(this);
 
         }
+
+
+
+       /* Intent addAccountIntent = new Intent(Settings.ACTION_ADD_ACCOUNT);
+        addAccountIntent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_WHEN_TASK_RESET);
+        addAccountIntent.putExtra(Settings.EXTRA_AUTHORITIES, new String[]{"com.app.SistMulti"});
+        startActivity(addAccountIntent);*/
+
         uno=(EditText)findViewById(R.id.btn_uno);
         due=(EditText)findViewById(R.id.btn_due);
         canc=(Button)findViewById(R.id.btn_canc);
@@ -62,35 +74,37 @@ public class SendMailActivity extends Activity {
                             public void onClick(DialogInterface dialog,
                                                 int which) {
 
-                                if(isOnline()) {
-                                    int si = 0;
-                                    try {
-                                        Log.i("SendMailActivity", "Send Button Clicked.");
-                                        String fromEmail = uno.getText().toString();
-                                        String fromPassword = due.getText().toString();//"1928dgieee";//
-                                        String toEmails = "catia.prandi2@unibo.it";
-                                        List toEmailList = Arrays.asList(toEmails
-                                                .split("\\s*,\\s*"));
-                                        Log.i("SendMailActivity", "To List: " + toEmailList);
-                                        String emailSubject = "Corso di Sistemi Multimediali, consegna dello studente: " + lk;
-                                        String emailBody = listRep.toString();//"asfafdsgsdfsdfsdf";
-                                        new SendTaskMail(SendMailActivity.this).execute(fromEmail,
-                                                fromPassword, toEmailList, emailSubject, emailBody);
-                                        si = 1;
+                                if(isOnline()){
 
-                                    } catch (Exception a) {
 
-                                        // Toast.makeText(getApplicationContext(),
-                                        //      "errore", Toast.LENGTH_SHORT).show();
+                                        int si = 0;
+                                        try {
+                                            Log.i("SendMailActivity", "Send Button Clicked.");
+                                            String fromEmail =uno.getText().toString();
+                                            String fromPassword = due.getText().toString();//"1928dgieee";//
+                                            String toEmails = "catia.prandi2@unibo.it";
+                                            List toEmailList = Arrays.asList(toEmails
+                                                    .split("\\s*,\\s*"));
+                                            Log.i("SendMailActivity", "To List: " + toEmailList);
+                                            String emailSubject = "Corso di Sistemi Multimediali, consegna dello studente: " + lk;
+                                            String emailBody = listRep.toString();//"asfafdsgsdfsdfsdf";
+                                            new SendTaskMail(SendMailActivity.this).execute(fromEmail,
+                                                    fromPassword, toEmailList, emailSubject, emailBody);
+                                            si = 1;
 
-                                    }
-                                }
-                                else{
+                                        } catch (Exception a) {
+
+                                        }
+
+                                }else{
                                     Toast.makeText(SendMailActivity.this, "abilitare la connessione internet..", Toast.LENGTH_SHORT).show();
                                 }
+                                }
 
 
-                            }
+
+
+
                         });
                 alert.setNegativeButton("No",
                         new DialogInterface.OnClickListener() {
@@ -113,7 +127,7 @@ public class SendMailActivity extends Activity {
 
 
                 AlertDialog.Builder alert = new AlertDialog.Builder(SendMailActivity.this);
-                alert.setMessage("se si procede in questo modo verrà inviata una mail contentente i report svolti. Continuare?");
+                alert.setMessage("se si procede in questo modo verrà cancellato il db. Continuare?");
                 alert.setPositiveButton("Si",
                         new DialogInterface.OnClickListener() {
                             public void onClick(DialogInterface dialog,
@@ -139,7 +153,17 @@ public class SendMailActivity extends Activity {
 
 
 }
-
+    public boolean checkMailTrue(String email){
+        boolean vediamo=false;
+        for(int i=0;i<email.length();i++){
+            String l=".";
+            if(Character.toString(email.charAt(i)).compareTo(l)==0){
+                vediamo=true;
+                //Toast.makeText(SendMailActivity.this, "presente il punto ", Toast.LENGTH_LONG).show();
+            }
+        }
+        return vediamo;
+    }
 
     public void cancella(){
         List<Repos> k=db.getAllRepos();
@@ -161,5 +185,17 @@ public class SendMailActivity extends Activity {
                 (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
         NetworkInfo netInfo = cm.getActiveNetworkInfo();
         return netInfo != null && netInfo.isConnectedOrConnecting();
+    }
+    public boolean isConnectedToServer() {
+        try{
+            URL myUrl = new URL("pod51002.outlook.com");
+            URLConnection connection = myUrl.openConnection();
+            connection.setConnectTimeout(3000);
+            connection.connect();
+            return true;
+        } catch (Exception e) {
+            // Handle your exceptions
+            return false;
+        }
     }
 }

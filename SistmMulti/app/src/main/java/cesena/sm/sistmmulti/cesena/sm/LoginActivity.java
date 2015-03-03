@@ -1,4 +1,4 @@
-package cesena.sm.sistmmulti;
+package cesena.sm.sistmmulti.cesena.sm;
 
 import javax.mail.MessagingException;
 
@@ -15,6 +15,8 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
+
+import cesena.sm.sistmmulti.R;
 
 public class LoginActivity extends Activity {
     private static SqLiteConn db;
@@ -63,10 +65,41 @@ public class LoginActivity extends Activity {
             finish();
         }       // alertMy("ciaociao","bobobobo");
 
+       // checkMailTrue("da.asdas");
     }
+    public void alertMy(String sTitle, String sMessage){
+        AlertDialog.Builder builder = new AlertDialog.Builder(LoginActivity.this); // activity
+        builder.setTitle(sTitle)
+                .setMessage(sMessage)
+                .setCancelable(false)
+                .setPositiveButton("OK",new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int id) {
+                        dialog.cancel();
+                    }
+                })
+                .setNegativeButton("NO",new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int id) {
+                        dialog.cancel();
+                    }
+                });
+
+
+        AlertDialog alert = builder.create();
+        alert.show();
 
     }
-
+    public boolean checkMailTrue(String email){
+        boolean vediamo=false;
+        for(int i=0;i<email.length();i++){
+            String l=".";
+            if(Character.toString(email.charAt(i)).compareTo(l)==0){
+                vediamo=true;
+               // Toast.makeText(LoginActivity.this, "presente il punto ", Toast.LENGTH_LONG).show();
+            }
+        }
+        return vediamo;
+    }
+}
 
 
 

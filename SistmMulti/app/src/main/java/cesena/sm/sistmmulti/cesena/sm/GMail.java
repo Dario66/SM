@@ -1,4 +1,4 @@
-package cesena.sm.sistmmulti;
+package cesena.sm.sistmmulti.cesena.sm;
 
 
 /**
@@ -26,15 +26,15 @@ public class GMail {
     final String starttls = "true";
     final String emailHost = "pod51002.outlook.com";
 
-    private String fromEmail;
-    private String fromPassword;
-    private List<String> toEmailList;
-    private String emailSubject;
-    private String emailBody;
+    String fromEmail;
+    String fromPassword;
+    List<String> toEmailList;
+    String emailSubject;
+    String emailBody;
 
-    private Properties emailProperties;
-    private Session mailSession;
-    private MimeMessage emailMessage;
+    Properties emailProperties;
+    Session mailSession;
+    MimeMessage emailMessage;
 
     public GMail() {
 
@@ -53,12 +53,13 @@ public class GMail {
         emailProperties.put("mail.smtp.auth", smtpAuth);
         emailProperties.put("mail.smtp.starttls.enable", starttls);
         Log.i("GMail", "Mail server properties set.");
+
     }
 
     public MimeMessage createEmailMessage() throws AddressException,
             MessagingException, UnsupportedEncodingException {
 
-        mailSession = Session.getDefaultInstance(emailProperties, null);
+        mailSession = Session.getDefaultInstance(emailProperties, new GMailAuthenticator(fromEmail, fromPassword));
         emailMessage = new MimeMessage(mailSession);
 
         emailMessage.setFrom(new InternetAddress(fromEmail, fromEmail));

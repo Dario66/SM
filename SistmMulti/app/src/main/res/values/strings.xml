@@ -8,5 +8,6 @@
     <string name="title_activity_login">LoginActivity</string>
     <string name="title_activity_report">ReportActivity</string>
     <string name="title_activity_send_mail">SendMailActivity</string>
+    <string name="title_activity_gmail_authenticator">GMailAuthenticator</string>
 
 </resources>

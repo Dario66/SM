@@ -1,4 +1,4 @@
-package cesena.sm.sistmmulti;
+package cesena.sm.sistmmulti.cesena.sm;
 
 import java.util.List;
 
@@ -11,6 +11,8 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
+
+import cesena.sm.sistmmulti.R;
 
 public class ReportActivity extends Activity {
 
@@ -31,8 +33,14 @@ public class ReportActivity extends Activity {
         d2=(EditText)findViewById(R.id.editdesc);
     }
 
+    public void aaa(View v){
 
+        List<Student> ass= db.getAllStuds();
+        for (Student i : ass) {
+            Toast.makeText(this, ""+i._testo2+"", Toast.LENGTH_LONG).show();
+        }
 
+    }
     double a;
     double b;
     public void makeRepo(View v){
@@ -93,10 +101,14 @@ public class ReportActivity extends Activity {
         startActivity(intent);
         finish();
     }
-   
+    public void ass(View v){
+        List<Repos> s=db.getAllRepos();
+        for(Repos h:s){
+            Toast.makeText(this, ""+h._level.toString()+"", Toast.LENGTH_LONG).show();
+        }
 
 
-
+    }
     public void consegna(View v){
         Intent intent = new Intent(this, SendMailActivity.class);
         intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);

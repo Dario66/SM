@@ -1,4 +1,4 @@
-package cesena.sm.sistmmulti;
+package cesena.sm.sistmmulti.cesena.sm;
 
 /**
  * Created by Dario5 on 22/02/2015.
@@ -12,6 +12,9 @@ import android.database.sqlite.SQLiteOpenHelper;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import cesena.sm.sistmmulti.cesena.sm.Repos;
+import cesena.sm.sistmmulti.cesena.sm.Student;
 
 
 public class SqLiteConn extends SQLiteOpenHelper {

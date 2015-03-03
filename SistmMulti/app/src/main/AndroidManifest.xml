@@ -2,19 +2,25 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="cesena.sm.sistmmulti" >
 
-    <!-- To access Google+ APIs: -->
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_" />
 
+    <!-- To access Google+ APIs: -->
     <!--
  To retrieve OAuth 2.0 tokens or invalidate tokens to disconnect a user. This disconnect
      option is required to comply with the Google+ Sign-In developer policies
     -->
     <application
         android:allowBackup="true"
-        android:icon="@drawable/ic_launcher2"
+        android:icon="@drawable/logo"
         android:label="@string/app_name"
         android:theme="@style/AppTheme" >
         <activity
-            android:name=".LoginActivity"
+            android:name=".cesena.sm.LoginActivity"
             android:label="@string/app_name" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -28,18 +34,17 @@
             android:value="@integer/google_play_services_version" />
 
         <activity
-            android:name=".ReportActivity"
+            android:name=".cesena.sm.ReportActivity"
             android:label="@string/title_activity_report" >
         </activity>
         <activity
-            android:name=".SendMailActivity"
+            android:name=".cesena.sm.SendMailActivity"
             android:label="@string/title_activity_send_mail" >
         </activity>
+        <activity
+            android:name=".cesena.sm.GMailAuthenticator"
+            android:label="@string/title_activity_gmail_authenticator" >
+        </activity>
     </application>
-    <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
-    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
-    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
 </manifest>

@@ -1,4 +1,4 @@
-package cesena.sm.sistmmulti;
+package cesena.sm.sistmmulti.cesena.sm;
 
 /**
  * Created by Dario5 on 22/02/2015.
@@ -14,7 +14,12 @@ import android.app.Activity;
 import android.app.ProgressDialog;
 import android.os.AsyncTask;
 import android.util.Log;
-import android.widget.Toast;
+
+import javax.mail.Authenticator;
+import javax.mail.PasswordAuthentication;
+import javax.mail.Session;
+
+import cesena.sm.sistmmulti.cesena.sm.GMail;
 
 public class SendTaskMail extends AsyncTask {
 
@@ -31,7 +36,7 @@ public class SendTaskMail extends AsyncTask {
         statusDialog = new ProgressDialog(sendMailActivity);
         statusDialog.setMessage("Getting ready...");
         statusDialog.setIndeterminate(false);
-        statusDialog.setCancelable(true);
+        statusDialog.setCancelable(false);
         statusDialog.show();
 
 
@@ -39,6 +44,8 @@ public class SendTaskMail extends AsyncTask {
 
     @Override
     protected Object doInBackground(Object... args) {
+
+
         try {
             Log.i("SendMailTask", "About to instantiate GMail...");
             publishProgress("Processing input....");
@@ -67,6 +74,7 @@ public class SendTaskMail extends AsyncTask {
     @Override
     public void onPostExecute(Object result) {
        // statusDialog.dismiss();
+        statusDialog.setCancelable(true);
 
 
     }
